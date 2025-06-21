@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sandesh Surwase | Portfolio</title>
+  <!-- External Libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Embedded CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0077ff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #0077ff;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #0077ff, #00d4ff);
+      color: white;
+      text-align: center;
+    }
+
+    .hero-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid #fff;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero span {
+      color: #ffe100;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background: #ffe100;
+      color: #333;
+      padding: 10px 20px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #ffc400;
+    }
+    section {
+      padding: 80px 50px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #0077ff;
+    }
+    .about p, .contact form, .skills-list, .projects-grid {
+      max-width: 900px;
+      margin: auto;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .project-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      background: #0077ff;
+      color: white;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 2px solid #0077ff;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+    }
+    .contact-form button {
+      padding: 10px;
+      background-color: #0077ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #0056cc;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .skills-list span {
+      background: #0077ff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .social-links {
+      margin: 20px 0;
+    }
+    .social-links a {
+      color: white;
+      font-size: 24px;
+      margin: 0 10px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .social-links a:hover {
+      color: #ffe100;
+      transform: scale(1.2);
+    }
+    .contact p {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    footer {
+      padding: 20px;
+      text-align: center;
+      justify-content: center;
+      background: #333;
+      height: 100px;
+      color: white;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+    #bp-web-widget [data-testid="powered-by"] {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Sandesh.</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content" data-aos="fade-up">
+      <img src="https://i.ibb.co/GQ3J7X4P/485737863-1029580939028931-1196269359286659640-n.jpg" alt="Sandesh Surwase" class="hero-img">
+      <h1>Hi, I'm <span>Sandesh Surwase</span></h1>
+      <p>Developer | Tech Enthusiast | Innovator</p>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/sandesh" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Sandy123" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/sandesh" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:sandeshsurwase2005@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
+  <!-- About Section -->
+  <section class="about" id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I'm a passionate Computer Science student specializing in creating smart applications, building tech solutions, and solving real-world problems. I love to work on AI, Web Development, and Electronics projects!</p>
+  </section>
+  <!-- project -->
+<section class="projects" id="projects" data-aos="fade-up">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <h3>Instant YT Downloader</h3>
+      <p>Web app to download YouTube videos easily with a modern UI.</p>
+    </div>
+    <div class="project-card">
+      <h3>Diwali Memories Website</h3>
+      <p>Collaborative festive platform for sharing memories and photos.</p>
+    </div>
+    <!-- ✅ New eCommerce Project Card with Link -->
+    <div class="project-card">
+      <h3>E-Commerce Website</h3>
+      <p>.................................</p>
+      <a href="https://moccasin-morissa-78.tiiny.site/" target="" class="btn">Open Project</a>
+    </div>
+  </div>
+</section>
+  <!-- Skills Section -->
+  <section class="skills" id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <span>Java</span>
+      <span>Python</span>
+      <span>Web Development</span>
+      <span>Data Structures</span>
+      <span>AI/ML Basics</span>
+      <span>BOTPRESS</span>
+      <span>C</span>
+    </div>
+  </section>
+  <!-- Contact Section -->
+  <section class="contact" id="contact" data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <p>I'd love to hear from you!</p>
+    <form action="https://formspree.io/f/xdkgkgyv" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Sandesh Surwase. All Rights Reserved.</p>
+  </footer>
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200 });
+  </script>
+  <!-- Botpress Chatbot Script -->
+  <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+  <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/04/26/05/20250426054833-GUQMV4BC.js"></script>
+</body>
+</html>
