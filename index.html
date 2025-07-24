@@ -533,6 +533,15 @@
   menuToggle.addEventListener('click', () => {
     navList.classList.toggle('active');
   });
+  document.addEventListener('click', function(event) {
+  if (
+    navList.classList.contains('active') &&
+    !navList.contains(event.target) &&
+    !menuToggle.contains(event.target)
+  ) {
+    navList.classList.remove('active');
+  }
+});
 </script>
 
   <!-- Botpress Chatbot Script -->
