@@ -256,6 +256,61 @@
   font-family: 'Poppins', sans-serif;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+     /* ...existing code... */
+
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: #181818;
+    color: #eee;
+  }
+  .navbar.dark-mode {
+    background: #222;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+  .logo.dark-mode {
+    color: #ffe100;
+  }
+  nav ul li a.dark-mode {
+    color: #eee;
+  }
+  nav ul li a.dark-mode:hover {
+    color: #ffe100;
+  }
+  .hero.dark-mode {
+    background: linear-gradient(135deg, #222, #333);
+    color: #ffe100;
+  }
+  .project-card.dark-mode {
+    background: #222;
+    color: #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+  .project-card.dark-mode:hover {
+    background: #0077ff;
+    color: #ffe100;
+  }
+  .skills-list span.dark-mode,
+  .skills-track span.dark-mode {
+    background: #333;
+    color: #ffe100;
+  }
+  .contact-form input.dark-mode,
+  .contact-form textarea.dark-mode {
+    background: #222;
+    color: #eee;
+    border-color: #ffe100;
+  }
+  .contact-form button.dark-mode {
+    background-color: #ffe100;
+    color: #222;
+  }
+  footer.dark-mode {
+    background: #222;
+    color: #ffe100;
+  }
+  .social-links a.dark-mode {
+    color: #ffe100;
+  }
 
 @keyframes scrollRight {
   0%   { transform: translateX(-100%); }
@@ -283,6 +338,10 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+     <!-- Dark mode toggle button -->
+  <button id="darkModeToggle" style="background:none;border:none;cursor:pointer;font-size:22px;" title="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
   </header>
   <!-- Hero Section -->
   <section class="hero" id="home">
@@ -378,6 +437,22 @@
   <script>
     AOS.init({ duration: 1200 });
   </script>
+  <script>
+  // Dark mode toggle logic
+  const toggleBtn = document.getElementById('darkModeToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    document.querySelector('.navbar').classList.toggle('dark-mode');
+    document.querySelector('.logo').classList.toggle('dark-mode');
+    document.querySelector('footer').classList.toggle('dark-mode');
+    document.querySelector('.hero').classList.toggle('dark-mode');
+    document.querySelectorAll('nav ul li a').forEach(el => el.classList.toggle('dark-mode'));
+    document.querySelectorAll('.project-card').forEach(el => el.classList.toggle('dark-mode'));
+    document.querySelectorAll('.skills-list span, .skills-track span').forEach(el => el.classList.toggle('dark-mode'));
+    document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form button').forEach(el => el.classList.toggle('dark-mode'));
+    document.querySelectorAll('.social-links a').forEach(el => el.classList.toggle('dark-mode'));
+  });
+</script>
   <!-- Botpress Chatbot Script -->
   <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
   <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
