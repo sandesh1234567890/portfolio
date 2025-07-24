@@ -312,6 +312,37 @@
     color: #ffe100;
   }
 
+  .menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: #0077ff;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 200px;
+    padding: 10px;
+    z-index: 999;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
 @keyframes scrollRight {
   0%   { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
@@ -342,6 +373,10 @@
   <button id="darkModeToggle" style="background:none;border:none;cursor:pointer;font-size:22px;" title="Toggle dark mode">
     <i class="fas fa-moon"></i>
   </button>
+  <div class="menu-toggle" id="menu-toggle">
+  <i class="fas fa-bars"></i>
+</div>
+
   </header>
   <!-- Hero Section -->
   <section class="hero" id="home">
@@ -453,6 +488,15 @@
     document.querySelectorAll('.social-links a').forEach(el => el.classList.toggle('dark-mode'));
   });
 </script>
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navList = document.querySelector('nav ul');
+
+  menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
+</script>
+
   <!-- Botpress Chatbot Script -->
   <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
   <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
