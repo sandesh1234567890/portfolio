@@ -319,6 +319,35 @@
   cursor: pointer;
 }
 
+/* transition of dark mode */
+.toggle-btn .icon-moon,
+.toggle-btn .icon-sun {
+  transition: opacity 0.4s, transform 0.4s;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+.toggle-btn .icon-moon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+.toggle-btn.sun .icon-moon {
+  opacity: 0;
+  transform: scale(0.5) rotate(-180deg);
+}
+.toggle-btn .icon-sun {
+  opacity: 0;
+  transform: scale(0.5) rotate(180deg);
+}
+.toggle-btn.sun .icon-sun {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+.toggle-btn .icon-sun,
+.toggle-btn.sun .icon-sun {
+  color: #fff !important;
+}
+
 @media (max-width: 768px) {
   nav ul {
     display: none;
@@ -339,6 +368,11 @@
 
   .menu-toggle {
     display: block;
+  }    
+  /* Dark mode for mobile menu */
+  nav ul.dark-mode {
+    background: #222;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   }
 }
 
@@ -370,9 +404,10 @@
       </ul>
     </nav>
      <!-- Dark mode toggle button -->
-  <button id="darkModeToggle" style="background:none;border:none;cursor:pointer;font-size:22px;" title="Toggle dark mode">
-    <i class="fas fa-moon"></i>
-  </button>
+  <button id="darkModeToggle" class="toggle-btn" style="background:none;border:none;cursor:pointer;font-size:22px;position:relative;width:32px;height:32px;" title="Toggle dark mode">
+  <i class="fas fa-moon icon-moon"></i>
+  <i class="fas fa-sun icon-sun"></i>
+</button>
   <div class="menu-toggle" id="menu-toggle">
   <i class="fas fa-bars"></i>
 </div>
@@ -486,6 +521,9 @@
     document.querySelectorAll('.skills-list span, .skills-track span').forEach(el => el.classList.toggle('dark-mode'));
     document.querySelectorAll('.contact-form input, .contact-form textarea, .contact-form button').forEach(el => el.classList.toggle('dark-mode'));
     document.querySelectorAll('.social-links a').forEach(el => el.classList.toggle('dark-mode'));
+    document.querySelector('nav ul').classList.toggle('dark-mode');
+    toggleBtn.classList.toggle('sun');
+
   });
 </script>
 <script>
